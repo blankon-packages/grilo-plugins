@@ -1,0 +1,413 @@
+grilo-plugins (0.2.14-2blankon1) tambora; urgency=medium
+
+  * New upstream release
+  * Import from PPA GNOME3-TEAM
+
+ -- Mahyuddin <yudi.al@gmail.com>  Sun, 31 May 2015 23:30:11 +0700
+
+grilo-plugins (0.2.14-2ubuntu1~vivid1) vivid; urgency=medium
+
+  * Copied from wily
+
+ -- Rico Tzschichholz <ricotz@ubuntu.com>  Sat, 30 May 2015 08:34:34 +0200
+
+grilo-plugins (0.2.14-2ubuntu1) wily; urgency=low
+
+  * Merge from Debian unstable.  Remaining changes:
+    - Split package into -base and -extra
+  * Build with --fail-missing so we install everything.
+  * debian/patches/0001-guardianvideos-fix-URL-format-string.patch:
+    Cherry-pick. guardianvideos: fix URL format string The online service
+    complains loudly if passed 1.0 instead of 1, let's make sure values are
+    formatted as integers.
+
+ -- Iain Lane <iain@orangesquash.org.uk>  Fri, 29 May 2015 12:47:23 +0100
+
+grilo-plugins (0.2.14-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Alberto Garcia <berto@igalia.com>  Tue, 26 May 2015 10:21:10 +0200
+
+grilo-plugins (0.2.14-1) experimental; urgency=medium
+
+  * New upstream release.
+  * fix-dleyna-crash.patch:
+    - Drop patch, it's already included in this release.
+  * old-bookmarks-plugin.patch:
+    - Refresh.
+  * debian/control:
+    - Update Standards-Version to 3.9.6 (no changes).
+    - Update build dependency on libgrilo-0.2-dev to 0.2.12.
+    - Update build dependency on libgdata-dev to 0.9.7.
+    - Replace build dependency on libmediaart-1.0-dev with
+      libmediaart-2.0-dev (Closes: #784678).
+    - Add the new OpenSubtitles plugin to the package description.
+  * debian/copyright:
+    - Update copyright years.
+
+ -- Alberto Garcia <berto@igalia.com>  Fri, 08 May 2015 09:55:41 +0300
+
+grilo-plugins (0.2.13-3ubuntu3) vivid; urgency=medium
+
+  * Add a transitional package to protect upgraders.
+  * Consolidate -dbg packages into just one.
+
+ -- Iain Lane <iain@orangesquash.org.uk>  Wed, 18 Feb 2015 15:43:31 +0000
+
+grilo-plugins (0.2.13-3ubuntu2) vivid; urgency=medium
+
+  * Split package into -base and -extra
+  * Add upstream patch to support new guardianvideos API
+
+ -- Jackson Doak <noskcaj@ubuntu.com>  Sat, 14 Feb 2015 06:30:40 +1100
+
+grilo-plugins (0.2.13-3) unstable; urgency=medium
+
+  * libgom is still not available in Debian, so let's use the bookmarks
+    plugin from 0.2.12, which does not depend on it.
+    - old-bookmarks-plugin.patch: bring back the old code.
+    - debian/control: add the plugin name to the package description.
+
+ -- Alberto Garcia <berto@igalia.com>  Mon, 17 Nov 2014 15:49:31 +0200
+
+grilo-plugins (0.2.13-2) unstable; urgency=medium
+
+  * debian/control:
+    - Add build dependency on librest-dev, needed by the Pocket
+      plugin. This has been working so far because librest-dev is also
+      a dependency of libgoa-1.0-dev, but we should not rely on that.
+    - Make grilo-plugins recommend dleyna-server (Closes: #765986).
+  * fix-dleyna-crash.patch:
+    - Fix crash due to variable redefinition (Closes: #769357).
+
+ -- Alberto Garcia <berto@igalia.com>  Sun, 16 Nov 2014 17:58:49 +0200
+
+grilo-plugins (0.2.13-1) unstable; urgency=medium
+
+  * New upstream release (Closes: #750038).
+  * debian/control:
+    - Replace the UPnP plugin with the new dLeyna plugin.
+    - Disable the Bookmarks plugin since it now requires libgom, which is
+      not available in Debian.
+    - Add build dependencies on libarchive-dev and python-dbusmock.
+    - Drop the build dependencies on gupnp, gupnp-av and libgcrypt.
+    - Bump the build dependencies on libglib2.0-dev and libgrilo-0.2-dev.
+  * debian/grilo-plugins-0.2.lintian-overrides:
+    - Ignore hardening warnings, the strncpy() and gethostname() calls in
+      grl-dleyna-utils.c are guaranteed to have enough space.
+
+ -- Alberto Garcia <berto@igalia.com>  Wed, 27 Aug 2014 14:48:22 +0300
+
+grilo-plugins (0.2.12-4) unstable; urgency=medium
+
+  * Enable the Pocket plugin:
+    - debian/control: set libgoa dependency to >= 3.11.4 and update
+      package description.
+    - debian/rules: remove the --disable-pocket option.
+
+ -- Alberto Garcia <berto@igalia.com>  Tue, 27 May 2014 18:58:16 +0200
+
+grilo-plugins (0.2.12-3) unstable; urgency=medium
+
+  * debian/control:
+    - Build using libtracker-sparql-1.0-dev (Closes: #741423).
+
+ -- Alberto Garcia <berto@igalia.com>  Mon, 12 May 2014 13:06:46 +0300
+
+grilo-plugins (0.2.12-2) unstable; urgency=medium
+
+  * debian/install:
+    - Install translation files and Lua scripts for the grl-lua-factory
+      plugin.
+
+ -- Alberto Garcia <berto@igalia.com>  Fri, 21 Mar 2014 10:42:51 +0200
+
+grilo-plugins (0.2.12-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/control:
+    - Update build dependency on grilo to 2.10.
+    - Add build dependencies on liblua5.2-dev and libmediaart-1.0-dev.
+    - Replace Guardian Videos plugin with Lua Factory in the description.
+  * debian/rules:
+    - Enable parallel builds.
+  * debian/grilo-plugins-0.2.lintian-overrides:
+    - Ignore hardening warnings, the strcpy() call in grl-lua-library.c is
+      guaranteed to have enough space.
+
+ -- Alberto Garcia <berto@igalia.com>  Thu, 20 Mar 2014 11:04:29 +0200
+
+grilo-plugins (0.2.11-3) unstable; urgency=medium
+
+  * debian/control:
+    - Put the dependency on libtracker-sparql-0.16-dev first since it's
+      the only one available in sid at the moment, and the Debian buildds
+      only consider the first alternative (Closes: #741520).
+
+ -- Alberto Garcia <berto@igalia.com>  Thu, 13 Mar 2014 14:38:14 +0200
+
+grilo-plugins (0.2.11-2) unstable; urgency=medium
+
+  * debian/control:
+    - Build with libtracker-sparql-1.0-dev if available (Closes: #741423).
+
+ -- Alberto Garcia <berto@igalia.com>  Thu, 13 Mar 2014 11:48:22 +0200
+
+grilo-plugins (0.2.11-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/rules: disable Automake's silent rules.
+
+ -- Alberto Garcia <berto@igalia.com>  Tue, 18 Feb 2014 23:45:22 +0200
+
+grilo-plugins (0.2.10-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Drop all patches, they are already included in this release.
+  * debian/control:
+    - Update build dependency on grilo to 0.2.8.
+    - Update build dependency on glib to 2.32.
+    - Add build dependency on libavahi-gobject-dev.
+    - Add the Freebox and Guardian Videos plugins to the package
+      description.
+    - Replace build dependency on gnome-doc-utils with yelp-tools.
+    - Build depend on uuid-dev, which is required by libgupnp-1.0-dev but
+      is not one of its dependencies.
+  * debian/install:
+    - Help files are now installed in usr/share/help.
+  * debian/rules:
+    - Disable the new Pocket plugin since the required libgoa version is
+      not available in Debian yet.
+  * debian/copyright: update copyright years.
+
+ -- Alberto Garcia <berto@igalia.com>  Sun, 16 Feb 2014 15:25:26 +0200
+
+grilo-plugins (0.2.9-3) unstable; urgency=low
+
+  * dont-leak-cache-dirs.patch: Don't leak cache dirs (Closes: #736096).
+  * debian/control: update Standards-Version to 3.9.5 (no changes).
+
+ -- Alberto Garcia <berto@igalia.com>  Tue, 21 Jan 2014 11:26:11 +0200
+
+grilo-plugins (0.2.9-2) unstable; urgency=low
+
+  * fix-tests.patch: fix TMDb tests (Closes: #730882).
+
+ -- Alberto Garcia <berto@igalia.com>  Mon, 02 Dec 2013 10:47:47 +0200
+
+grilo-plugins (0.2.9-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control: remove build dependency on libquvi-dev.
+
+ -- Alberto Garcia <berto@igalia.com>  Mon, 26 Aug 2013 09:36:55 +0300
+
+grilo-plugins (0.2.8-4) unstable; urgency=low
+
+  [ Michael Biebl ]
+  * debian/control: build against tracker 0.16 (Closes: #718412).
+
+ -- Alberto Garcia <berto@igalia.com>  Wed, 31 Jul 2013 20:48:09 +0300
+
+grilo-plugins (0.2.8-3) unstable; urgency=low
+
+  * debian/rules: enable dh_auto_test again, the glib bug that was making
+    the sparc build fail (#709781) has already been solved.
+
+ -- Alberto Garcia <berto@igalia.com>  Sat, 20 Jul 2013 21:30:06 +0200
+
+grilo-plugins (0.2.8-2) unstable; urgency=low
+
+  * Update my e-mail address in debian/control and debian/copyright.
+  * debian/rules: disable dh_auto_test, it breaks the sparc build during
+    make check (Closes: #714485).
+
+ -- Alberto Garcia <berto@igalia.com>  Thu, 18 Jul 2013 15:50:58 +0200
+
+grilo-plugins (0.2.8-1) unstable; urgency=low
+
+  * New upstream release.
+  * Upload to unstable.
+  * debian/control:
+    - Update build dependency on grilo to 0.2.6.
+    - Add build dependencies on libgoa-1.0-dev and liboauth-dev.
+    - Add Magnatune to the list of plugins.
+
+ -- Alberto Garcia <agarcia@igalia.com>  Wed, 29 May 2013 13:48:35 +0200
+
+grilo-plugins (0.2.6-2) experimental; urgency=low
+
+  [ Jonny Lamb ]
+  * Add grilo-plugins-0.2-dbg debug package (Closes: #704512).
+
+ -- Alberto Garcia <agarcia@igalia.com>  Tue, 02 Apr 2013 16:48:38 +0300
+
+grilo-plugins (0.2.6-1) experimental; urgency=low
+
+  * New upstream release.
+  * debian/control: update Standards-Version to 3.9.4 (no changes).
+  * debian/copyright: update copyright years.
+  * debian/control: mention the new Rai.tv plugin in the package
+    description.
+  * Build with dh-autoreconf to ensure that the autotools helper files are
+    being regenerated (this fixes lintian outdated-autotools-helper-file).
+    - debian/rules: pass '--with autoreconf' to dh.
+    - debian/control: add build dependencies on dh-autoreconf and
+      gnome-common.
+
+ -- Alberto Garcia <agarcia@igalia.com>  Wed, 20 Mar 2013 11:23:30 +0200
+
+grilo-plugins (0.2.5-1) experimental; urgency=low
+
+  * New upstream release.
+  * Enable 'make check' again:
+    - debian/rules: don't override dh_auto_test.
+    - debian/control: build depend on docbook-xml, since it contains all
+      the required DTDs so it will work without network support.
+  * debian/install: don't touch example-tmdb.c, it is now correctly
+    installed in the gnome help directory by default.
+
+ -- Alberto Garcia <agarcia@igalia.com>  Tue, 11 Dec 2012 17:49:17 +0100
+
+grilo-plugins (0.2.4-1) experimental; urgency=low
+
+  * New upstream release.
+  * debian/control: librest-dev is no longer a build dependency.
+  * debian/rules: don't run make test, it currently fails.
+  * The package now comes with an example and help files:
+    - debian/install: install new files in their respective directories.
+    - debian/control: add build dependency on gnome-doc-utils.
+
+ -- Alberto Garcia <agarcia@igalia.com>  Sat, 01 Dec 2012 13:39:17 +0200
+
+grilo-plugins (0.2.3-1) experimental; urgency=low
+
+  * New upstream release.
+  * debian/control: depend on libgrilo >= 0.2.3, libglib >= 2.28 and
+    libquvi >= 0.4.0.
+  * Drop the lintian-overrides file, there are no longer hardening
+    warnings.
+
+ -- Alberto Garcia <agarcia@igalia.com>  Mon, 12 Nov 2012 18:16:52 +0200
+
+grilo-plugins (0.2.2-1) experimental; urgency=low
+
+  * New upstream release, first in the 0.2 series in Debian.
+  * debian/*: rename everything from *0.1* to *0.2*.
+  * New plugins: DMAP, SHOUTcast, TMDb.
+    - Add build dependencies on libjson-glib-dev and
+      libdmapsharing-3.0-dev to debian/control.
+    - List them in the description field in debian/control.
+  * debian/control: remove the DM-Upload-Allowed field, it's now obsolete.
+
+ -- Alberto Garcia <agarcia@igalia.com>  Fri, 12 Oct 2012 16:57:01 +0300
+
+grilo-plugins (0.1.20-1) experimental; urgency=low
+
+  * New upstream release.
+  * debian/control: build depend on libgrilo 0.1.20.
+  * debian/grilo-plugins-0.1.lintian-overrides: remove
+    hardening-no-fortify-functions override, lintian no longer produces
+    this false positive.
+
+ -- Alberto Garcia <agarcia@igalia.com>  Fri, 17 Aug 2012 10:25:35 +0300
+
+grilo-plugins (0.1.19-1) unstable; urgency=low
+
+  * New upstream release.
+  * New optical media plugin:
+    - debian/control: add plugin to the package description.
+    - debian/control: build depend on libtotem-plparser-dev.
+  * debian/control: build depend on libgrilo 0.1.19.
+  * Drop support-tracker-0.14.patch, it's no longer needed.
+    - debian/control: remove build dependencies on dh-autoreconf and
+      gnome-common.
+    - debian/rules: don't pass '--with autoreconf' to dh.
+  * Multi-arch support:
+    - debian/compat: set compatibility level to 9.
+    - debian/control: build depend on debhelper >= 9.
+    - debian/control: Add Multi-Arch and Pre-Depends fields.
+    - debian/install: replace usr/lib/ with usr/lib/*/.
+  * grilo-plugins-0.1.lintian-overrides: ignore hardening warnings, Grilo
+    plugins do not use character arrays on the stack and all of them are
+    compiled with -DFORTIFY_SOURCE=2
+  * debian/copyright: update copyright years and add section for Debian
+    files.
+
+ -- Alberto Garcia <agarcia@igalia.com>  Thu, 24 May 2012 18:20:26 +0200
+
+grilo-plugins (0.1.18-3) unstable; urgency=low
+
+  * Build against tracker-sparql 0.14 (Closes: #664021).
+  * debian/rules: run dh with '--with autoreconf'.
+  * debian/control: add build dependency on dh-autoreconf and
+    gnome-common.
+  * debian/control: change libtracker-sparql dependency to version 0.14.
+  * New patch:
+    - support-tracker-0.14.patch: add support for Tracker 0.14.
+
+ -- Alberto Garcia <agarcia@igalia.com>  Thu, 15 Mar 2012 00:44:59 +0200
+
+grilo-plugins (0.1.18-2) unstable; urgency=low
+
+  * debian/control: update build dependency on GMime to version 2.6
+    (Closes: #663209).
+  * debian/control: update Standards-Version to 3.9.3.
+  * debian/copyright: update debian copyright format URL.
+
+ -- Alberto Garcia <agarcia@igalia.com>  Fri, 09 Mar 2012 19:08:10 +0200
+
+grilo-plugins (0.1.18-1) unstable; urgency=low
+
+  * New upstream release.
+  * This release comes with support for tracker-sparql 0.12:
+    - Drop 01_support-tracker-0.12.patch.
+    - debian/rules: don't run dh with '--with autoreconf'.
+    - debian/control: don't build-depend on dh-autoreconf or gnome-common.
+  * debian/control: build-depend on libgrilo-0.1-dev 0.1.18.
+  * debian/watch: scan for .xz files, upstream no longer uses bz2.
+  * debian/copyright: rewrite using the machine-readable format.
+
+ -- Alberto Garcia <agarcia@igalia.com>  Sat, 10 Dec 2011 15:42:06 +0200
+
+grilo-plugins (0.1.17-2) unstable; urgency=low
+
+  * Build against tracker-sparql 0.12. Thanks to Michael Biebl for his
+    help. (Closes: #643942)
+  * debian/rules: run dh with '--with autoreconf'.
+  * debian/control: add build dependency on dh-autoreconf and
+    gnome-common.
+  * debian/control: change libtracker-sparql dependency to version 0.12.
+  * New patch:
+    - 01_support-tracker-0.12.patch: add support for Tracker 0.12.
+
+ -- Alberto Garcia <agarcia@igalia.com>  Sun, 20 Nov 2011 22:17:39 +0100
+
+grilo-plugins (0.1.17-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control: add Blip.tv and Tracker to the list of plugins.
+  * debian/control: set build dependencies of libgrilo-0.1-dev to >=
+    0.1.17 and libgdata-dev to >= 0.7.0.
+  * debian/control: add new build dependencies on libquvi-dev >= 0.2.15,
+    librest-dev >= 0.7, libtracker-sparql-0.10-dev (>= 0.10.5), and
+    libgmime-2.4-dev.
+  * debian/install: .xml files are now in usr/lib/grilo-0.1.
+
+ -- Alberto Garcia <agarcia@igalia.com>  Tue, 06 Sep 2011 16:10:55 +0300
+
+grilo-plugins (0.1.16-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/copyright: Author(s) => Authors.
+  * debian/control: depend on grilo 0.1.16.
+
+ -- Alberto Garcia <agarcia@igalia.com>  Sat, 02 Jul 2011 13:57:21 +0300
+
+grilo-plugins (0.1.15-1) unstable; urgency=low
+
+  * Initial release (Closes: #629395)
+
+ -- Alberto Garcia <agarcia@igalia.com>  Fri, 17 Jun 2011 01:20:44 +0300
+

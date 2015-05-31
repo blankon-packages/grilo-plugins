@@ -1,0 +1,29 @@
+From 65698590834ce3bb7a836d7e14b36a2ba87e0481 Mon Sep 17 00:00:00 2001
+From: Giovanni Campagna <gcampagn@cs.stanford.edu>
+Date: Mon, 20 Apr 2015 18:20:37 -0700
+Subject: [PATCH] guardianvideos: fix URL format string
+
+The online service complains loudly if passed 1.0 instead of 1,
+let's make sure values are formatted as integers.
+
+https://bugzilla.gnome.org/show_bug.cgi?id=748224
+---
+ src/lua-factory/sources/grl-guardianvideos.lua | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/lua-factory/sources/grl-guardianvideos.lua b/src/lua-factory/sources/grl-guardianvideos.lua
+index cf1cf16..282a898 100644
+--- a/src/lua-factory/sources/grl-guardianvideos.lua
++++ b/src/lua-factory/sources/grl-guardianvideos.lua
+@@ -23,7 +23,7 @@
+ -- Test the API at:
+ -- http://explorer.content.guardianapis.com/search?api-key=rppwmmu3mfqj6gkbs8kcjg23&show-fields=all&page-size=50&tag=type/video
+ API_KEY                          = 'rppwmmu3mfqj6gkbs8kcjg23'
+-GUARDIANVIDEOS_URL               = 'http://content.guardianapis.com/search?tag=type/video&page=%s&page-size=%s&show-fields=all&api-key=%s'
++GUARDIANVIDEOS_URL               = 'http://content.guardianapis.com/search?tag=type/video&page=%d&page-size=%d&show-fields=all&api-key=%s'
+ 
+ ---------------------------
+ -- Source initialization --
+-- 
+2.1.4
+
