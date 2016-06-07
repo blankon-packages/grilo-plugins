@@ -1,3 +1,119 @@
+grilo-plugins (0.3.1-1blankon1) tambora; urgency=medium
+
+  * New upstream release
+
+ -- Syai Mif <syaimif@di.blankon.in>  Tue, 07 Jun 2016 14:17:46 +0700
+
+grilo-plugins (0.3.1-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/patches/fix-double-free.patch,
+    debian/patches/fix-lua-factory-leak.patch:
+    - Remove these patches, they are included in this release.
+  * debian/patches/v0.2-coinstall.patch
+    - Refresh.
+  * debian/copyright:
+    - Update copyright years and add missing attributions.
+  * debian/control:
+    - Update build dependency on libgom to 0.3.2.
+    - Update Standards-Version to 3.9.8.
+
+ -- Alberto Garcia <berto@igalia.com>  Sun, 24 Apr 2016 21:35:49 +0300
+
+grilo-plugins (0.3.0-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Upload to unstable.
+
+ -- Michael Biebl <biebl@debian.org>  Tue, 19 Apr 2016 15:34:37 +0200
+
+grilo-plugins (0.3.0-1) experimental; urgency=medium
+
+  * New upstream release.
+    - Rename grilo-plugins-0.2 to grilo-plugins-0.3.
+  * debian/control:
+    - Downgrade build dependency on debhelper to >= 9, we are not
+      overriding dh_strip anymore.
+  * debian/patches:
+    - Refresh all patches.
+  * Allow co-installing with grilo-plugins-0.2 by renaming all files and
+    directories that have the same name. This is a temporary change that
+    can be reverted once the transition to grilo-plugins-0.3 is complete.
+    - debian/install:
+      + Use /usr/share/grilo-plugins-0.3.
+    - debian/rules:
+      + Rename example-tmdb.c to tmdb-example.c.
+    - debian/patches/v0.2-coinstall.patch:
+      + Rename all paths and file names that are conflicting.
+
+ -- Alberto Garcia <berto@igalia.com>  Sat, 26 Mar 2016 01:12:30 +0200
+
+grilo-plugins (0.2.17-1) unstable; urgency=medium
+
+  * New upstream release (Closes: #802666, #812012).
+  * video_sanitise_string-crash.patch:
+    - Remove this patch, it is now obsolete.
+  * debian/control:
+    - Update the following build dependencies:
+      + libglib2.0-dev from 2.36 to 2.44.
+      + libgoa-1.0-dev from 3.11.4 to 3.17.91.
+      + Lua from liblua5.2-dev to liblua5.3-dev.
+    - List all available Lua scripts in the description.
+    - The DMAP plugin has been replaced with DAAP and DPAP.
+    - Remove Blip.tv from the package description: this plugin no longer
+      exists because the service shut down (Closes: #799791).
+    - Remove Apple Trailers, Last.fm and Pocket from the package
+      description: they have been replaced by lua scripts for the Lua
+      plugin.
+      + Drop the build dependency on librest-dev.
+    - Update Standards-Version to 3.9.7.
+    - Update homepage.
+  * debian/rules:
+    - Disable tests: some need network access and can fail depending on
+      the status of the server they connect to.
+    - Enable all hardening flags.
+  * Migrate to automatic -dbgsym packages:
+    - debian/control:
+      + Remove the entries for grilo-plugins-0.2-dbg.
+      + Require debhelper >= 9.20151219.
+    - debian/rules:
+      + Replace --dbg-package with --ddeb-migration in dh_strip.
+  * fix-double-free.patch, fix-lua-factory-leak.patch:
+    - Cherry pick two fixes from the 0.2.x stable branch.
+  * debian/grilo-plugins-0.2.lintian-overrides:
+    - Remove unused override for libgrlluafactory.so
+  * debian/copyright:
+    - Update copyright years.
+
+ -- Alberto Garcia <berto@igalia.com>  Mon, 29 Feb 2016 22:21:41 +0200
+
+grilo-plugins (0.2.14-5) unstable; urgency=medium
+
+  * The TheTVDB plugin fails during make check if the home directory is
+    not writable, so make HOME point to /tmp.
+
+ -- Alberto Garcia <berto@igalia.com>  Sat, 20 Jun 2015 23:42:05 +0300
+
+grilo-plugins (0.2.14-4) unstable; urgency=medium
+
+  * libgom is finally available in Debian, so this is the first release of
+    grilo-plugins built with it.
+  * debian/control:
+    - Add build dependency on libgom-1.0-dev (>= 0.3.0).
+    - We can finally enable TheTVDB plugin, so add it to the package
+      description.
+  * old-bookmarks-plugin.patch:
+    - Drop this patch, we can now build the latest version of this plugin.
+
+ -- Alberto Garcia <berto@igalia.com>  Sat, 20 Jun 2015 16:16:59 +0300
+
+grilo-plugins (0.2.14-3) unstable; urgency=medium
+
+  * video_sanitise_string-crash.patch:
+    - Fix crash in video_sanitise_string() (Closes: #787976).
+
+ -- Alberto Garcia <berto@igalia.com>  Thu, 11 Jun 2015 14:23:09 +0300
+
 grilo-plugins (0.2.14-2blankon1) tambora; urgency=medium
 
   * New upstream release

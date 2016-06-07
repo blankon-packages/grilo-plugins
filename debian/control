@@ -12,12 +12,12 @@ Build-Depends: debhelper (>= 9),
                python-dbusmock,
                libarchive-dev,
                librest-dev (>= 0.7.90),
-               libglib2.0-dev (>= 2.36),
-               libgrilo-0.2-dev (>= 0.2.12),
+               libglib2.0-dev (>= 2.44),
+               libgrilo-0.2-dev (>= 0.3.2),
                libxml2-dev,
                libavahi-gobject-dev,
                libsqlite3-dev,
-               libgoa-1.0-dev (>= 3.11.4),
+               libgoa-1.0-dev (>= 3.17.91),
                uuid-dev,
                libgdata-dev (>= 0.9.1),
                libgmime-2.6-dev,
@@ -29,15 +29,15 @@ Build-Depends: debhelper (>= 9),
                libsoup2.4-dev,
                libjson-glib-dev,
                libdmapsharing-3.0-dev
-Standards-Version: 3.9.6
+Standards-Version: 3.9.8
 Homepage: http://live.gnome.org/Grilo
 
-Package: grilo-plugins-0.2
+Package: grilo-plugins-0.3
 Architecture: all
 Priority: extra
 Section: oldlibs
-Depends: grilo-plugins-0.2-base,
-         grilo-plugins-0.2-extra,
+Depends: grilo-plugins-0.3-base,
+         grilo-plugins-0.3-extra,
          ${misc:Depends}
 Description: transitional dummy package
  This is a transitional dummy package to ease upgrades to
@@ -49,9 +49,9 @@ Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends},
          ${misc:Depends}
-Suggests: grilo-plugins-0.2-extra
-Breaks: grilo-plugins-0.2 (<< 0.2.13-3ubuntu1~)
-Replaces: grilo-plugins-0.2 (<< 0.2.13-3ubuntu1~)
+Suggests: grilo-plugins-0.3-extra
+Breaks: grilo-plugins-0.3 (<< 0.2.13-3ubuntu1~)
+Replaces: grilo-plugins-0.3 (<< 0.2.13-3ubuntu1~)
 Description: Framework for discovering and browsing media - Base Plugins
  Grilo is a framework focused on making media discovery and browsing
  easy for application developers.
@@ -84,16 +84,16 @@ Description: Framework for discovering and browsing media - Base Plugins
    * Vimeo
    * Youtube
 
-Package: grilo-plugins-0.2-extra
+Package: grilo-plugins-0.3-extra
 Architecture: any
 Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends},
          ${misc:Depends},
-         grilo-plugins-0.2-base
+         grilo-plugins-0.3-base
 Recommends: dleyna-server
-Breaks: grilo-plugins-0.2 (<< 0.2.13-3ubuntu1~)
-Replaces: grilo-plugins-0.2 (<< 0.2.13-3ubuntu1~)
+Breaks: grilo-plugins-0.3 (<< 0.2.13-3ubuntu1~)
+Replaces: grilo-plugins-0.3 (<< 0.2.13-3ubuntu1~)
 Description: Framework for discovering and browsing media - Extra Plugins
  Grilo is a framework focused on making media discovery and browsing
  easy for application developers.
@@ -119,16 +119,16 @@ Description: Framework for discovering and browsing media - Extra Plugins
    * Podcasts
    * TMDb
 
-Package: grilo-plugins-0.2-dbg
+Package: grilo-plugins-0.3-dbg
 Section: debug
 Priority: extra
 Architecture: any
 Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
-Depends: grilo-plugins-0.2-base (= ${binary:Version}),
-         grilo-plugins-0.2-extra (= ${binary:Version}),
+Depends: grilo-plugins-0.3-base (= ${binary:Version}),
+         grilo-plugins-0.3-extra (= ${binary:Version}),
          ${misc:Depends}
-Description: grilo-plugins-0.2 debuging symbols
+Description: grilo-plugins-0.3 debuging symbols
  Grilo is a framework focused on making media discovery and browsing
  easy for application developers.
  .
@@ -143,4 +143,4 @@ Description: grilo-plugins-0.2 debuging symbols
      various kinds.
  .
  This package contains the debugging symbols for the Grilo plugins in
- grilo-plugins-0.2-base and grilo-plugins-0.2-extra.
+ grilo-plugins-0.3-base and grilo-plugins-0.3-extra.
